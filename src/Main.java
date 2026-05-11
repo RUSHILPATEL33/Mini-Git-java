@@ -1,32 +1,27 @@
-import java.io.*;
-import java.nio.file.*;
-import utils.HashUtil;
+import commands.AddCommand;
+import commands.CommitCommand;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        if(args.length > 1 && args[0].equals("add")) {
+        if(args.length == 0) {
+            System.out.println("No command given");
+            return;
+        }
 
-            String filename = args[1];
+        switch(args[0]) {
 
-            File file = new File(filename);
+            case "add":
+                AddCommand.run(args[1]);
+                break;
 
-            if(!file.exists()) {
-                System.out.println("File does not exist");
-                return;
-            }
+            case "commit":
+                CommitCommand.run(args[1]);
+                break;
 
-            String content = new String(Files.readAllBytes(file.toPath()));
-
-            String hashString = HashUtil.sha1(content);
-
-            File objectFile = new File(".mygit/objects/" + hashString);
-
-            Files.write(objectFile.toPath(), content.getBytes());
-
-            System.out.println("Added file: " + filename);
-            System.out.println("Hash: " + hashString);
+            default:
+                System.out.println("Invalid command");
         }
     }
 }
