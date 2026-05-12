@@ -1,6 +1,7 @@
 import commands.AddCommand;
 import commands.CommitCommand;
 import commands.LogCommand;
+import commands.StatusCommand;
 
 public class Main {
 
@@ -23,6 +24,9 @@ public class Main {
             
             case "log":
                 LogCommand.run();
+                break;
+            case "status":
+                StatusCommand.run();
                 break;
 
             default:
