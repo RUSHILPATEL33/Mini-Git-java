@@ -1,5 +1,6 @@
 import commands.AddCommand;
 import commands.CommitCommand;
+import commands.LogCommand;
 
 public class Main {
 
@@ -18,6 +19,10 @@ public class Main {
 
             case "commit":
                 CommitCommand.run(args[1]);
+                break;
+            
+            case "log":
+                LogCommand.run();
                 break;
 
             default:
