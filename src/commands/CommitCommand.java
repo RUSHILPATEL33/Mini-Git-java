@@ -28,6 +28,7 @@ public class CommitCommand{
 
         File commitFile = new File(".mygit/commits/" + commitId);
         Files.write(commitFile.toPath(), commitContent.getBytes());
+        Files.write(Paths.get(".mygit/HEAD"), commitId.getBytes());
 
         indexFile.delete();
 

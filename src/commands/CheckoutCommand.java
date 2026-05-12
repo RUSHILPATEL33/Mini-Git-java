@@ -54,5 +54,9 @@ public class CheckoutCommand {
                 "Restored: " + filename
             );
         }
+        Files.write(
+            Paths.get(".mygit/HEAD"),
+            commitId.getBytes()
+        );
     }
 }
