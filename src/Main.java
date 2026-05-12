@@ -2,6 +2,7 @@ import commands.AddCommand;
 import commands.CommitCommand;
 import commands.LogCommand;
 import commands.StatusCommand;
+import commands.CheckoutCommand;
 
 public class Main {
 
@@ -27,6 +28,9 @@ public class Main {
                 break;
             case "status":
                 StatusCommand.run();
+                break;
+            case "checkout":
+                CheckoutCommand.run(args[1]);
                 break;
 
             default:
